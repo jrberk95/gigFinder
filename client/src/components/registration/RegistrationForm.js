@@ -16,9 +16,7 @@ const RegistrationForm = () => {
   });
 
   const [errors, setErrors] = useState({});
-
   const [serverErrors, setServerErrors] = useState({})
-
   const [shouldRedirect, setShouldRedirect] = useState(false);
 
   const validateInput = (payload) => {
@@ -75,7 +73,6 @@ const RegistrationForm = () => {
         name: "is required",
       };
     }
-
 
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {

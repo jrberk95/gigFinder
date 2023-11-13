@@ -28,8 +28,7 @@ class UserSeeder {
                 role: "artist"
             }
         ]
-
-    
+        
         for (const user of userData) {
             const currentUser = await User.query().findOne({ email: user.email })
             if (!currentUser) {
