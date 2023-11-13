@@ -1,21 +1,27 @@
 import React, { useState } from "react";
 import FormError from "../layout/FormError";
 import config from "../../config";
+import ErrorList from "../layout/ErrorList"
+import translateServerErrors from "../../services/translateServerErrors"
 
 const RegistrationForm = () => {
   const [userPayload, setUserPayload] = useState({
     email: "",
     password: "",
     passwordConfirmation: "",
+    name: "",
+    primaryLocation: "",
+    spotifyLink: "",
+    role: ""
   });
 
   const [errors, setErrors] = useState({});
-
+  const [serverErrors, setServerErrors] = useState({})
   const [shouldRedirect, setShouldRedirect] = useState(false);
 
   const validateInput = (payload) => {
     setErrors({});
-    const { email, password, passwordConfirmation } = payload;
+    const { email, password, passwordConfirmation, primaryLocation, name, role } = payload;
     const emailRegexp = config.validation.email.regexp;
     let newErrors = {};
 
@@ -47,6 +53,27 @@ const RegistrationForm = () => {
       }
     }
 
+    if (primaryLocation.trim() == "") {
+      newErrors = {
+        ...newErrors,
+        primaryLocation: "is required",
+      };
+    }
+
+    if (role.trim() == "") {
+      newErrors = {
+        ...newErrors,
+        role: "is required",
+      };
+    }
+
+    if (name.trim() == "") {
+      newErrors = {
+        ...newErrors,
+        name: "is required",
+      };
+    }
+
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
       return true
@@ -67,6 +94,11 @@ const RegistrationForm = () => {
             }),
           });
           if (!response.ok) {
+            if (response.status === 422) {
+              const body = await response.json();
+              const newServerErrors = translateServerErrors(body.errors)
+              return setServerErrors(newServerErrors)
+            }
             const errorMessage = `${response.status} (${response.statusText})`;
             const error = new Error(errorMessage);
             throw error;
@@ -94,6 +126,7 @@ const RegistrationForm = () => {
   return (
     <div className="grid-container">
       <h1>Register</h1>
+      <ErrorList errors={serverErrors} />
       <form onSubmit={onSubmit}>
         <div>
           <label>
@@ -124,6 +157,57 @@ const RegistrationForm = () => {
               onChange={onInputChange}
             />
             <FormError error={errors.passwordConfirmation} />
+          </label>
+        </div>
+        <div>
+          <label>
+            Venue/Artist Name:
+            <input
+              type="text"
+              name="name"
+              value={userPayload.name}
+              onChange={onInputChange}
+            />
+            <FormError error={errors.name} />
+          </label>
+        </div>
+        <div>
+          <label>
+            Primary location:
+            <input
+              type="text"
+              name="primaryLocation"
+              value={userPayload.primaryLocation}
+              onChange={onInputChange}
+            />
+            <FormError error={errors.primaryLocation} />
+          </label>
+        </div>
+        <div>
+          <label>
+            Spotify artist link:
+            <input
+              type="text"
+              name="spotifyLink"
+              value={userPayload.spotifyLink}
+              onChange={onInputChange}
+            />
+            <FormError error={errors.spotifyLink} />
+          </label>
+        </div>
+        <div>
+          <label>
+            I am...
+            <select
+              name="role"
+              value={userPayload.role}
+              onChange={onInputChange}
+            >
+              <option value=""></option>
+              <option value="artist">An artist</option>
+              <option value="venue">A venue</option>
+            </select>
+            <FormError error={errors.role} />
           </label>
         </div>
         <div>
