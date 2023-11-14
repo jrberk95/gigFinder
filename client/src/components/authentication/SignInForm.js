@@ -73,6 +73,7 @@ const SignInForm = () => {
   return (
     <div className="grid-container" onSubmit={onSubmit}>
       <h1>Sign In</h1>
+      <a href="/auth/spotify" className="button">Sign in with Spotify</a>
       <form>
         <div>
           <label>
