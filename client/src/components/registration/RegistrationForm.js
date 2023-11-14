@@ -126,7 +126,10 @@ const RegistrationForm = () => {
   return (
     <div className="grid-container">
       <h1>Register</h1>
+      <h4>Artists, please use Spotify to sign in</h4>
+      <a href="/auth/spotify" className="button">Sign in with Spotify</a>
       <ErrorList errors={serverErrors} />
+      <p>Not an artist, or don't have a Spotify account? Use the form below to create your account!</p>
       <form onSubmit={onSubmit}>
         <div>
           <label>

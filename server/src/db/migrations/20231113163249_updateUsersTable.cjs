@@ -10,7 +10,11 @@ exports.up = async (knex) => {
         table.string("name").notNullable()
         table.string("primaryLocation").notNullable()
         table.string("role").notNullable()
+        table.string("spotifyUserId")
+        table.string("spotifyArtistId")
         table.string("spotifyLink")
+        table.string("accessToken")
+        table.string("refreshToken")
     })
 }
 
