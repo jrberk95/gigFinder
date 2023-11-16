@@ -9,9 +9,9 @@ const authHandler = (email, password, done) => {
       if (user) {
         if (user.authenticate(password)) {
           return done(null, user);
+        } else {
+          return done(null, false, { message: "Invalid credentials" });
         }
-
-        return done(null, false, { message: "Invalid credentials" });
       }
       return done(null, false, { message: "Invalid credentials" });
     });
