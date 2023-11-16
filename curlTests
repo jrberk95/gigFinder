@@ -1,0 +1,31 @@
+TESTING ARTISTS TOP TRACKS:
+
+curl --request GET \
+  --url https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/top-tracks?market=US \
+  --header 'Authorization: Bearer BQCowapIKZ0TdCQShsLMVZ-4oRUhH2xMmMGUG08WzJgmeHfRiKATq6AtaI6pNm9Ikxi5RTctnWgqjcRtg7jq_t79dMwr0Jnz9DghMhAhcnotaFm81DnZ6L4LlocDCm7hqEoXUaBoGK-X8tJT2YfghCGBte1wkvSRKsXbvgbjHsSQBFXlnDugA0f7zXVywc3GHQ'
+
+
+  https://open.spotify.com/artist/
+
+TESTING ARTIST ALBUMS:
+
+  curl --request GET \
+  --url https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/albums \
+  --header 'Authorization: Bearer BQBI0uD3AwwJNYJ4Fz3QFDCp9qniyZtz3Ihh_XCYVMDqlfN2vhrGYro7l3JcvuGxFqsQGl9UPCr7b32lCs7zWzuXVvgV0xZdb0V0Qqj-ykbKnu4LUM5yAW4UOHb1Cbl2Qumshm-2CVD3MkPuADyPGFoIDpgCTQs3T9kMhEDbDr43an2fUQP2iZcVTi2jn2yOLw'
+
+  TESTING RELATED ALBUMS:
+
+  curl --request GET \
+  --url https://api.spotify.com/v1/artists/6qqNVTkY8uBg9cP3Jd7DAH?si=E7eszay9TfK5DbGzHrfDAw/related-artists \
+  --header 'Authorization: Bearer BQAmp-KRvTBayi63NpuTU2SVamTNI85W4aXLKr7dOOnC8Fm1Fq8EYfJxaOLzwJgcKQ-Udwerf7wdnKui7dL8bQZKVU6H99kuv8jTEWaOSSCdZeUpU7RkDnXn4xdZ4THKOaAQL_FyZljh7DW-QjfiOX6f5M3IVNWqEBWpgza6JqaUfc70e0n-mFWXSMcK7cmyQQ'
+
+  https://open.spotify.com/artist/6qqNVTkY8uBg9cP3Jd7DAH
+
+
+
+https://open.spotify.com/artist/0TnOYISbd1XYRBk9myaseg?si=zV45ejE0RvS45PwcjbQ24A
+
+
+  curl --request GET \
+  --url https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg \
+  --header 'Authorization: Bearer BQAmp-KRvTBayi63NpuTU2SVamTNI85W4aXLKr7dOOnC8Fm1Fq8EYfJxaOLzwJgcKQ-Udwerf7wdnKui7dL8bQZKVU6H99kuv8jTEWaOSSCdZeUpU7RkDnXn4xdZ4THKOaAQL_FyZljh7DW-QjfiOX6f5M3IVNWqEBWpgza6JqaUfc70e0n-mFWXSMcK7cmyQQ'

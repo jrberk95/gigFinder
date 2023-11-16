@@ -7,8 +7,11 @@ import "../assets/scss/main.scss";
 import RegistrationForm from "./registration/RegistrationForm";
 import SignInForm from "./authentication/SignInForm";
 import TopBar from "./layout/TopBar";
-import ArtistProfile from "./layout/ArtistProfile";
+import ArtistProfile from "./layout/ArtistShowPage";
 import AuthenticatedRoute from "./authentication/AuthenticatedRoute";
+import AddArtistId from "./layout/AddArtistId";
+import AccountDetails from "./layout/AccountDetails";
+import ArtistShowPage from "./layout/ArtistShowPage";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -32,7 +35,11 @@ const App = (props) => {
         <Route exact path="/">
           <h2>Hello from react</h2>
         </Route>
-        <AuthenticatedRoute exact path="/profile" component={ArtistProfile} user={currentUser}/>
+        <Route exact path="/artists/:spotifyArtistId">
+          <ArtistShowPage user={currentUser}/>
+        </Route>
+        <AuthenticatedRoute exact path="/profile" component={AccountDetails} user={currentUser}/>
+        <AuthenticatedRoute exact path="/profile/edit" component={AddArtistId} user={currentUser}/>
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
       </Switch>
