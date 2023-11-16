@@ -23,7 +23,6 @@ class spotifyClient {
     }
 
     static async getArtistData(accessToken, artistId) {
-
         const artistUrl = `https://api.spotify.com/v1/artists/${artistId}`
         const relatedArtistsUrl = `https://api.spotify.com/v1/artists/${artistId}/related-artists`
         const topTracksUrl = `https://api.spotify.com/v1/artists/${artistId}/top-tracks?market=US`
@@ -52,7 +51,5 @@ class spotifyClient {
             return err
         }
     }
-
 }
-
 export default spotifyClient

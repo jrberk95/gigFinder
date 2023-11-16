@@ -54,7 +54,6 @@ const ArtistShowPage = (props) => {
                 </div> 
             )
         })
-        
     }
     return (
         <>
@@ -65,7 +64,6 @@ const ArtistShowPage = (props) => {
             {similarArtists}
         </>
     )
-return "hello there!"
 }
 
 export default ArtistShowPage

@@ -6,7 +6,7 @@ const AddArtistId = (props) => {
 
     const [formInput, setFormInput] = useState("")
     const [shouldRedirect, setShouldRedirect] = useState(false)
-
+    
     const trackUserInput = (event) => {
         setFormInput(event.currentTarget.value)
         }
@@ -42,7 +42,7 @@ const AddArtistId = (props) => {
 
     if (shouldRedirect) {
         return <Redirect push to="/profile" />;
-      }
+    }
 
     return (
         <>

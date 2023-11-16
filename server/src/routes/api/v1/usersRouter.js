@@ -8,7 +8,6 @@ import spotifyClient from "../../../apiClient/spotifyClient.js";
 const usersRouter = new express.Router();
 
 usersRouter.get("/", async (req, res) => {
-
   const userId = req.user.id
   const desiredArtist = await User.query().findOne({id: userId})
   const artistId = desiredArtist.spotifyArtistId

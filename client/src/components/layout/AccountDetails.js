@@ -2,9 +2,7 @@ import React from "react"
 import AddArtistId from "./AddArtistId"
 
 const AccountDetails = (props) => {
-
     const { name, email, primaryLocation, spotifyArtistId} = props.user
-
     let idForm
     if (!spotifyArtistId) {
         idForm = <AddArtistId />
