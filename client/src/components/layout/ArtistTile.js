@@ -7,8 +7,6 @@ const ArtistTile = (props) => {
     const imageSrc = props.artist.data.images[1].url
     const followers = props.artist.data.followers.total
     let genreDisplay
-
-
     if (genres.length > 0) {
         let genreOptions = genres.map((genre) => {
             return <li key={genre}>{genre}</li>
@@ -30,5 +28,4 @@ const ArtistTile = (props) => {
         </div>
     ) 
 }
-
 export default ArtistTile
