@@ -7,24 +7,24 @@ class UserSeeder {
                 email: "beane@gmail.com",
                 name: "Beane",
                 password: "Sympathy",
-                primaryLocation: "Los Angeles",
-                spotifyLink: "https://open.spotify.com/artist/6OPhoP9klTrNJm9EF0FnRt?si=71hE6OHiRiCSvkAA4Kcv9g",
+                primaryLocation: "US",
+                spotifyArtistId: "6OPhoP9klTrNJm9EF0FnRt",
                 role: "artist"
             },
             {
                 email: "blb@gmail.com",
                 name: "Blue Light Bandits",
                 password: "Sarah",
-                primaryLocation: "Boston",
-                spotifyLink: "https://open.spotify.com/artist/3TqbfOB7nVsw47k3vkL1h6?si=tqT9JyE4SKuj6bcngoDzUQ",
+                primaryLocation: "US",
+                spotifyArtistId: "3TqbfOB7nVsw47k3vkL1h6",
                 role: "artist"
             },
             {
                 email: "goLo@gmail.com",
                 name: "Lowell Oakley",
                 password: "#GoLo",
-                primaryLocation: "Los Angeles",
-                spotifyLink: "https://open.spotify.com/artist/2DMzW9mjVpFXGMK4Ll6Sjq?si=t4E4jEJCTwiEQqSS1TCKBA",
+                primaryLocation: "US",
+                spotifyArtistId: "2DMzW9mjVpFXGMK4Ll6Sjq",
                 role: "artist"
             }
         ]

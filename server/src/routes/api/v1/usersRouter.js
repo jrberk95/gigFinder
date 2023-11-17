@@ -4,21 +4,30 @@ import { User } from "../../../models/index.js";
 import { ValidationError } from "objection";
 import got from "got"
 import spotifyClient from "../../../apiClient/spotifyClient.js";
+import ArtistSerializer from "../../../serializers/ArtistSerializer.js";
 
 const usersRouter = new express.Router();
 
-usersRouter.get("/", async (req, res) => {
+usersRouter.get("/:userId", async (req, res) => {
   const userId = req.user.id
   const desiredArtist = await User.query().findOne({id: userId})
   const artistId = desiredArtist.spotifyArtistId
   const accessToken = desiredArtist.accessToken
-
   try {
-    const artistData = await spotifyClient.getArtistData(accessToken, artistId)
+    const artistData = await spotifyClient.getAllArtistData(accessToken, artistId)
     return res.status(200).json({ allData: artistData })
   } catch (error) {
-    console.log(error)
     return res.status(500).json({ errors: error });
+  }
+})
+
+usersRouter.get("/", async (req, res) => {
+  try {
+    const completedProfiles = await User.query().select("name", "spotifyArtistId", "primaryLocation", "accessToken").whereNotNull("spotifyArtistId")
+    const profilesWithData = await ArtistSerializer.getData(completedProfiles)
+    return res.status(200).json({ users: profilesWithData })
+  } catch (err) {
+    return res.status(500).json({ errors: err })
   }
 })
 

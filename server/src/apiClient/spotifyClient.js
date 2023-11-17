@@ -22,7 +22,25 @@ class spotifyClient {
         }
     }
 
-    static async getArtistData(accessToken, artistId) {
+    static async getTileData(accessToken, artistId) {
+        const artistUrl = `https://api.spotify.com/v1/artists/${artistId}`
+        const relatedArtistsUrl = `https://api.spotify.com/v1/artists/${artistId}/related-artists`
+        const topTracksUrl = `https://api.spotify.com/v1/artists/${artistId}/top-tracks?market=US`
+
+        try {
+        const artistApiResponse = await got(artistUrl, {
+            headers: {
+            Authorization: `Bearer ${accessToken}`
+            },
+        })
+        const artistData = await JSON.parse(artistApiResponse.body)
+        return artistData
+        } catch (err) {
+            return err
+        }
+    }
+
+    static async getAllArtistData(accessToken, artistId) {
         const artistUrl = `https://api.spotify.com/v1/artists/${artistId}`
         const relatedArtistsUrl = `https://api.spotify.com/v1/artists/${artistId}/related-artists`
         const topTracksUrl = `https://api.spotify.com/v1/artists/${artistId}/top-tracks?market=US`

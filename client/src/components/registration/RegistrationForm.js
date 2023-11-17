@@ -120,7 +120,7 @@ const RegistrationForm = () => {
   };
 
   if (shouldRedirect) {
-    location.href = "/my-profile";
+    location.href = "/profile";
   }
 
   return (
