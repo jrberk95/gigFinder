@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react"
 
 const ArtistShowPage = (props) => {
-
+    const artistId = props.match.params.spotifyArtistId
     const [spotifyData, setSpotifyData] = useState({})
 
     const getArtistData = async () => {
         try {
-            const response = await fetch("/api/v1/users")
+            const response = await fetch(`/api/v1/users/${artistId}`)
             const body = await response.json()
             setSpotifyData(body)
+            console.log(body)
         } catch (err) {
             console.log("Error in fetch:", err.message)
         }
     }
 
     useEffect(() => {
-        getArtistData()
+            getArtistData()
     }, [])
 
     let dataSection
