@@ -9,7 +9,6 @@ const ArtistShowPage = (props) => {
             const response = await fetch(`/api/v1/users/${artistId}`)
             const body = await response.json()
             setSpotifyData(body)
-            console.log(body)
         } catch (err) {
             console.log("Error in fetch:", err.message)
         }

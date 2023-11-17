@@ -17,7 +17,6 @@ usersRouter.get("/:userId", async (req, res) => {
     const artistData = await spotifyClient.getAllArtistData(accessToken, artistId)
     return res.status(200).json({ allData: artistData })
   } catch (error) {
-    console.log(error)
     return res.status(500).json({ errors: error });
   }
 })
@@ -26,10 +25,8 @@ usersRouter.get("/", async (req, res) => {
   try {
     const completedProfiles = await User.query().select("name", "spotifyArtistId", "primaryLocation", "accessToken").whereNotNull("spotifyArtistId")
     const profilesWithData = await ArtistSerializer.getData(completedProfiles)
-    console.log("profiles with data:", profilesWithData)
     return res.status(200).json({ users: profilesWithData })
   } catch (err) {
-    console.log(err)
     return res.status(500).json({ errors: err })
   }
 })
