@@ -12,6 +12,7 @@ import AddArtistId from "./layout/AddArtistId";
 import AccountDetails from "./layout/AccountDetails";
 import ArtistShowPage from "./layout/ArtistShowPage";
 import ArtistIndex from "./layout/ArtistIndex";
+import LandingPage from "./layout/LandingPage";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -32,9 +33,12 @@ const App = (props) => {
     <Router>
       <TopBar user={currentUser} />
       <Switch>
-        <Route exact path="/">
-          <h2>Hello from react</h2>
-        </Route>
+      <Route 
+          exact path="/"
+          render={(props) => {
+            return <LandingPage user={currentUser} {...props}/>
+          }}
+        />
         <Route exact path="/artists" component={ArtistIndex}/>
         <Route 
           exact path="/artists/:spotifyArtistId"

@@ -74,6 +74,13 @@ const RegistrationForm = () => {
       };
     }
 
+    if (role === 'artist') {
+      newErrors = {
+        ...newErrors, 
+        role: "Artists must use Spotify to sign in. Please use the 'Sign in with Spotify' button above"
+      }
+    }
+
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
       return true
@@ -129,7 +136,7 @@ const RegistrationForm = () => {
       <h4>Artists, please use Spotify to sign in</h4>
       <a href="/auth/spotify" className="button">Sign in with Spotify</a>
       <ErrorList errors={serverErrors} />
-      <p>Not an artist, or don't have a Spotify account? Use the form below to create your account!</p>
+      <h4>Venue owners/managers, please use the form below to create your account!</h4>
       <form onSubmit={onSubmit}>
         <div>
           <label>
@@ -164,7 +171,7 @@ const RegistrationForm = () => {
         </div>
         <div>
           <label>
-            Venue/Artist Name:
+            Full Name:
             <input
               type="text"
               name="name"
@@ -184,18 +191,6 @@ const RegistrationForm = () => {
               onChange={onInputChange}
             />
             <FormError error={errors.primaryLocation} />
-          </label>
-        </div>
-        <div>
-          <label>
-            Spotify artist link:
-            <input
-              type="text"
-              name="spotifyLink"
-              value={userPayload.spotifyLink}
-              onChange={onInputChange}
-            />
-            <FormError error={errors.spotifyLink} />
           </label>
         </div>
         <div>

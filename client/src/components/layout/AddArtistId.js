@@ -41,13 +41,14 @@ const AddArtistId = (props) => {
     }
 
     if (shouldRedirect) {
-        return <Redirect push to="/profile" />;
+        location.href="/profile"
     }
 
     return (
         <>
         <h3>Almost there!</h3>
-        <p>Please supply your Spotify Artist ID to finish creating your account.</p>
+        <p>Please supply your Spotify Artist Link to finish creating your account.</p>
+        <p>***Please note, in order to have your artist account publicly available you must provide a Spotify Artist Link***</p>
         <p>To find it:</p>
             <ul>
                 <li>Navigate to your Spotify Artist page</li>
@@ -55,7 +56,7 @@ const AddArtistId = (props) => {
                 <li>Select "Share", then "Copy link to artist"</li>
             </ul>
         <label>
-            <input type="text" onChange={trackUserInput} value={formInput}></input>
+            <input type="text" onChange={trackUserInput} value={formInput} placeholder="e.g. https://open.spotify.com/artist/0TnOYISbd1XYRBk9myaseg?si=qDNuicm1RCCdBOkC38K-zw"></input>
         </label>
         <button onClick={handleSubmit} className="button">Add Artist URL</button>
         </>
