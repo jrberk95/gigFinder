@@ -29,8 +29,8 @@ const AccountDetails = (props) => {
             <p>Account type: {role}</p>
             <p>Account email: {email}</p>
             <p>Primary location: {primaryLocation}</p>
-            <Link className="button">Add a new venue</Link>
-            <Link className="button">View my venues</Link>
+            <Link to="venues/new" className="button">Add a new venue</Link>
+            <Link to="venues/my-venues" className="button">View my venues</Link>
         </>
         )
     }
