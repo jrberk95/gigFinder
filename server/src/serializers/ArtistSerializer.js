@@ -1,10 +1,12 @@
 import spotifyClient from "../apiClient/spotifyClient.js"
 
 class ArtistSerializer {
-    static async getData(artists) {
+    static async getData(artists, refreshToken) {
+
+        const accessToken = await spotifyClient.getNewAccessToken(refreshToken)
 
         const serializedArtists = await Promise.all(artists.map(async (artist) => {
-            const { accessToken, spotifyArtistId } = artist
+            const { spotifyArtistId } = artist
             artist.data = await spotifyClient.getTileData(accessToken, spotifyArtistId)
             return artist
             })

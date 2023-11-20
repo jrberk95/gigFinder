@@ -17,6 +17,7 @@ import NewVenueForm from "./layout/NewVenueForm";
 import VenueShowPage from "./layout/VenueShowPage";
 import NewGigForm from "./layout/NewGigForm";
 import VenuesByOwner from "./layout/VenuesByOwner";
+import VenueIndex from "./layout/VenueIndex";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -44,6 +45,7 @@ const App = (props) => {
           }}
         />
         <Route exact path="/artists" component={ArtistIndex}/>
+        <Route exact path="/venues" component={VenueIndex}/>
         <Route 
           exact path="/artists/:spotifyArtistId"
           render={(props) => {
