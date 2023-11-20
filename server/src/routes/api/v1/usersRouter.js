@@ -10,11 +10,9 @@ const usersRouter = new express.Router();
 
 usersRouter.get("/:spotifyArtistId", async (req, res) => {
   const spotifyArtistId = req.params.spotifyArtistId
-  const desiredArtist = await User.query().findOne({spotifyArtistId: spotifyArtistId})
-  const artistId = desiredArtist.spotifyArtistId
-  const accessToken = desiredArtist.accessToken
   try {
-    const artistData = await spotifyClient.getAllArtistData(accessToken, artistId)
+    const accessToken = await spotifyClient.getNewAccessToken(req.user.refreshToken)
+    const artistData = await spotifyClient.getAllArtistData(accessToken, spotifyArtistId)
     return res.status(200).json({ allData: artistData })
   } catch (error) {
     return res.status(500).json({ errors: error });
@@ -22,9 +20,10 @@ usersRouter.get("/:spotifyArtistId", async (req, res) => {
 })
 
 usersRouter.get("/", async (req, res) => {
+  const refreshToken = req.user.refreshToken
   try {
     const completedProfiles = await User.query().select("name", "spotifyArtistId", "primaryLocation", "accessToken").whereNotNull("spotifyArtistId")
-    const profilesWithData = await ArtistSerializer.getData(completedProfiles)
+    const profilesWithData = await ArtistSerializer.getData(completedProfiles, refreshToken)
     return res.status(200).json({ users: profilesWithData })
   } catch (err) {
     return res.status(500).json({ errors: err })

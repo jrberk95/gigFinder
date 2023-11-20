@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from "react"
 import VenueTile from "./VenueTile"
 
-const VenuesByOwner = (props) => {
+const VenueIndex = (props) => {
+
     const [venues, setVenues] = useState([])
 
-    const getMyVenues = async () => {
+    const getVenues = async () => {
         try {
-            const response = await fetch("/api/v1/venues/my-venues")
+            const response = await fetch('/api/v1/venues')
             const body = await response.json()
             setVenues(body.venues)
         } catch (err) {
-            console.log("Error in fetch", err.message)
+            console.log("Error in fetch", err)
         }
     }
+
+    useEffect(() => {
+        getVenues()
+    }, [])
 
     const venueTiles = venues.map((venue) => {
         return (
@@ -20,15 +25,11 @@ const VenuesByOwner = (props) => {
         )
     })
 
-    useEffect(() => {
-        getMyVenues()
-    }, [])
-
     return (
         <>
-            {venueTiles}
+        {venueTiles}
         </>
     )
 }
 
-export default VenuesByOwner
+export default VenueIndex

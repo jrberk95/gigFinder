@@ -20,6 +20,16 @@ venuesRouter.post("/", async (req, res) => {
     }
 })
 
+venuesRouter.get("/my-venues", async (req, res) => {
+    const currentUser = req.user.id
+    try {
+        const allVenues = await Venue.query().where({ userId: currentUser })
+        return res.status(200).json({ venues: allVenues })
+    } catch (err) {
+        return res.status(500).json({ errors: err })
+    }
+})
+
 venuesRouter.get("/:id", async (req, res) => {
     const venueId= req.params.id
     try {
@@ -31,10 +41,9 @@ venuesRouter.get("/:id", async (req, res) => {
 })
 
 venuesRouter.get("/", async (req, res) => {
-    const currentUser = req.user.id
     try {
-        const allVenues = await Venue.query().where({ userId: currentUser })
-        return res.status(200).json({ venues: allVenues })
+        const venues = await Venue.query()
+        return res.status(200).json({ venues: venues })
     } catch (err) {
         return res.status(500).json({ errors: err })
     }

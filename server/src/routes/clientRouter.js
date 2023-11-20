@@ -7,7 +7,8 @@ const clientRoutes = [
   "/", 
   "/user-sessions/new", 
   "/users/new", 
-  "/artists", 
+  "/artists",
+  "/venues", 
   "/artists/:spotifyArtistId",
   "/venues/new",
   "/venues/:id"
