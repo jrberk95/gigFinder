@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react"
 
 const VenueTile = (props) => {
-
     const {id, name, location, capacity, category} = props.venue
-
     return (
         <div key={id}>
             <h3>{name}</h3>

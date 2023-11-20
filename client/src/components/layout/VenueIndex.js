@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react"
 import VenueTile from "./VenueTile"
 
 const VenueIndex = (props) => {
-
     const [venues, setVenues] = useState([])
-
+    
     const getVenues = async () => {
         try {
             const response = await fetch('/api/v1/venues')
