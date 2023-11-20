@@ -9,9 +9,7 @@ import ArtistSerializer from "../../../serializers/ArtistSerializer.js";
 const usersRouter = new express.Router();
 
 usersRouter.get("/:spotifyArtistId", async (req, res) => {
-  const userId = req.user.id
   const spotifyArtistId = req.params.spotifyArtistId
-  console.log(spotifyArtistId)
   const desiredArtist = await User.query().findOne({spotifyArtistId: spotifyArtistId})
   const artistId = desiredArtist.spotifyArtistId
   const accessToken = desiredArtist.accessToken
