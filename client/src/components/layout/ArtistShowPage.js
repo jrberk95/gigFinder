@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 
 const ArtistShowPage = (props) => {
+    console.log(props)
     const artistId = props.match.params.spotifyArtistId
     const [spotifyData, setSpotifyData] = useState({})
 
