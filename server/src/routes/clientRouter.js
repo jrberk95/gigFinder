@@ -8,7 +8,9 @@ const clientRoutes = [
   "/user-sessions/new", 
   "/users/new", 
   "/artists", 
-  "/artists/:spotifyArtistId"
+  "/artists/:spotifyArtistId",
+  "/venues/new",
+  "/venues/:id"
   ];
 const authedClientRoutes = ["/profile", "/profile/edit"];
 

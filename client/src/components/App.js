@@ -13,6 +13,10 @@ import AccountDetails from "./layout/AccountDetails";
 import ArtistShowPage from "./layout/ArtistShowPage";
 import ArtistIndex from "./layout/ArtistIndex";
 import LandingPage from "./layout/LandingPage";
+import NewVenueForm from "./layout/NewVenueForm";
+import VenueShowPage from "./layout/VenueShowPage";
+import NewGigForm from "./layout/NewGigForm";
+import VenuesByOwner from "./layout/VenuesByOwner";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -48,6 +52,15 @@ const App = (props) => {
         />
         <AuthenticatedRoute exact path="/profile" component={AccountDetails} user={currentUser}/>
         <AuthenticatedRoute exact path="/profile/edit" component={AddArtistId} user={currentUser}/>
+        <AuthenticatedRoute exact path="/venues/new" component={NewVenueForm} user={currentUser}/>
+        <AuthenticatedRoute exact path="/venues/my-venues" component={VenuesByOwner} user={currentUser}/>
+        <AuthenticatedRoute exact path="/venues/:userId/gigs" component={NewGigForm} user={currentUser}/>
+        <Route 
+          exact path="/venues/:id"
+          render={(props) => {
+            return <VenueShowPage user={currentUser} {...props}/>
+          }}
+        />
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
       </Switch>
