@@ -18,7 +18,7 @@ const AddArtistId = (props) => {
             const response = await fetch("/api/v1/users", {
                 method: "PATCH",
                 headers: new Headers({"Content-Type": "application/json"}),
-                body: JSON.stringify({ spotifyArtistId: artistId })
+                body: JSON.stringify({ spotifyArtistId: artistId, role: "artist" })
             })
             if (!response.ok) {
                 if (response.status === 422) {

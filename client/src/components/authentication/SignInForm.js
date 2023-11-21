@@ -73,33 +73,8 @@ const SignInForm = () => {
   return (
     <div className="grid-container" onSubmit={onSubmit}>
       <h1>Sign In</h1>
-      <h4>Artists, please sign in with Spotify</h4>
+      <h4>Use the button below to sign in with Spotify</h4>
       <a href="/auth/spotify" className="button">Sign in with Spotify</a>
-      <h4>Venue owners/managers, sign in using the form below:</h4>
-      <form>
-        <div>
-          <label>
-            Email
-            <input type="text" name="email" value={userPayload.email} onChange={onInputChange} />
-            <FormError error={errors.email} />
-          </label>
-        </div>
-        <div>
-          <label>
-            Password
-            <input
-              type="password"
-              name="password"
-              value={userPayload.password}
-              onChange={onInputChange}
-            />
-            <FormError error={errors.password} />
-          </label>
-        </div>
-        <div>
-          <input type="submit" className="button" value="Sign In" />
-        </div>
-      </form>
     </div>
   );
 };

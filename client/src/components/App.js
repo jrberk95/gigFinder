@@ -18,6 +18,8 @@ import VenueShowPage from "./layout/VenueShowPage";
 import NewGigForm from "./layout/NewGigForm";
 import VenuesByOwner from "./layout/VenuesByOwner";
 import VenueIndex from "./layout/VenueIndex";
+import AccountTypeSelector from "./layout/AccountTypeSelector";
+import VenueAccountEdit from "./layout/VenueAccountEdit";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -53,7 +55,9 @@ const App = (props) => {
           }}
         />
         <AuthenticatedRoute exact path="/profile" component={AccountDetails} user={currentUser}/>
-        <AuthenticatedRoute exact path="/profile/edit" component={AddArtistId} user={currentUser}/>
+        <AuthenticatedRoute exact path="/profile-type-select" component={AccountTypeSelector} user={currentUser}/>
+        <AuthenticatedRoute exact path="/artist-profile/edit" component={AddArtistId} user={currentUser}/>
+        <AuthenticatedRoute exact path="/venue-profile/edit" component={VenueAccountEdit} user={currentUser}/>
         <AuthenticatedRoute exact path="/venues/new" component={NewVenueForm} user={currentUser}/>
         <AuthenticatedRoute exact path="/venues/my-venues" component={VenuesByOwner} user={currentUser}/>
         <AuthenticatedRoute exact path="/venues/:userId/gigs" component={NewGigForm} user={currentUser}/>

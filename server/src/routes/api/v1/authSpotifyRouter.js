@@ -7,7 +7,7 @@ authSpotifyRouter.get('/', passport.authenticate('spotify', { scope: ['user-read
 
 authSpotifyRouter.get('/callback', passport.authenticate('spotify', 
     { 
-        successRedirect: "/profile",
+        successRedirect: "/profile-type-select",
         failureRedirect: "/auth/failure"
     })
 )

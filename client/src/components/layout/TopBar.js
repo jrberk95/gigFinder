@@ -22,21 +22,30 @@ const TopBar = ({ user }) => {
       <SignOutButton />
     </li>,
   ];
+  
+  let indexPages
+  if (user) {
+      indexPages = (
+        <>
+          <li>
+                <Link to="/artists">Artists</Link>
+              </li>
+              <li>
+                <Link to="/venues">Venues</Link>
+              </li>
+        </>
+      )
+  }
 
   return (
     <div className="top-bar">
       <div className="top-bar-left">
         <ul className="menu">
-          <li className="menu-text">App</li>
+          <li className="menu-text">GigFinder</li>
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
-            <Link to="/artists">Artists</Link>
-          </li>
-          <li>
-            <Link to="/venues">Venues</Link>
-          </li>
+          {indexPages}
         </ul>
       </div>
       <div className="top-bar-right">
