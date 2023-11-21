@@ -21,12 +21,15 @@ const ArtistTile = (props) => {
     }
 
     return (
-        <div key={spotifyArtistId} className="artist-tile">
-            <h3>{props.artist.data.name}</h3>
-            <img src={imageSrc} alt="Artist Spotify Profile Picture"/>
-            <p>Followers: {followers}</p>
+        <div key={spotifyArtistId} className="artist-tile cell medium-4">
+            <div className="artist-info">
+                <Link to={`/artists/${spotifyArtistId}`} className="tile-header">{props.artist.data.name}</Link>
+                <figcaption>Followers: {followers}</figcaption>
+            </div>
+            <div className="image-container">
+                <img src={imageSrc} alt="Artist Spotify Profile Picture" className="tile-pic"/>
+            </div>
             {genreDisplay}
-            <Link to={`/artists/${spotifyArtistId}`}>Learn more!</Link>
         </div>
     ) 
 }

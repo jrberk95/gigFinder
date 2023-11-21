@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const SignOutButton = () => {
   const [shouldRedirect, setShouldRedirect] = useState(false);
@@ -31,9 +31,9 @@ const SignOutButton = () => {
   }
 
   return (
-    <button type="button" className="button" onClick={signOut}>
+    <Link to="/"  className="button-79" onClick={signOut}>
       Sign Out
-    </button>
+    </Link>
   );
 };
 

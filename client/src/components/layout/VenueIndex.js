@@ -25,9 +25,10 @@ const VenueIndex = (props) => {
     })
 
     return (
-        <>
+        <div className="index grid-x grid-margin-x center-content">
+        <h1 className="cell page-header">Venues</h1>
         {venueTiles}
-        </>
+        </div>
     )
 }
 
