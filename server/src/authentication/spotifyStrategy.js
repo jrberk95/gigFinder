@@ -15,7 +15,7 @@ const spotifyAuthHandler = (accessToken, refreshToken, expires_in, profile, done
                     spotifyUserId: profile.id, 
                     email: profile.emails[0].value, 
                     name: profile.displayName,
-                    role: "artist",
+                    role: "",
                     primaryLocation: profile.country,
                     accessToken: accessToken,
                     refreshToken: refreshToken

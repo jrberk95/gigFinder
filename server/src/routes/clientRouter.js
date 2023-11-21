@@ -13,7 +13,7 @@ const clientRoutes = [
   "/venues/new",
   "/venues/:id"
   ];
-const authedClientRoutes = ["/profile", "/profile/edit"];
+const authedClientRoutes = ["/profile", "/profile-type-select", "/artist-profile/edit", "/venue-profile/edit"];
 
 router.get(authedClientRoutes, (req, res) => {
   if (req.user) {

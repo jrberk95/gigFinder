@@ -9,7 +9,7 @@ exports.up = async (knex) => {
     return knex.schema.alterTable("users", (table) => {
         table.string("name").notNullable()
         table.string("primaryLocation").notNullable()
-        table.string("role").notNullable()
+        table.string("role")
         table.string("spotifyUserId")
         table.string("spotifyArtistId")
         table.string("spotifyLink")
