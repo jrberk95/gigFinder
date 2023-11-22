@@ -23,17 +23,18 @@ const NewGigForm = (props) => {
             <h2>Add a new gig</h2>
             <form>
                 <label>Name:
-                    <input type="text" onChange={handleInputChange} value={formInput.name}/>
+                    <input type="text" name="name" onChange={handleInputChange} value={formInput.name}/>
                 </label>
                 <label>Date:
-                    <input type="text" onChange={handleInputChange} value={formInput.date}/>
+                    <input type="text" name="date" onChange={handleInputChange} value={formInput.date}/>
                 </label>
                 <label>Type:
-                    <input type="text" onChange={handleInputChange} value={formInput.type}/>
+                    <input type="text" name="type" onChange={handleInputChange} value={formInput.type}/>
                 </label>
                 <label>Rate:
-                    <input type="text" onChange={handleInputChange} value={formInput.rate}/>
+                    <input type="text" name="rate" onChange={handleInputChange} value={formInput.rate}/>
                 </label>
+                <input type="submit" value="Add gig"/>
             </form>
         </div>
     )
