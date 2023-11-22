@@ -26,7 +26,21 @@ class UserSeeder {
                 primaryLocation: "US",
                 spotifyArtistId: "2DMzW9mjVpFXGMK4Ll6Sjq",
                 role: "artist"
-            }
+            },
+            {
+                email: "testVenue@gmail.com",
+                name: "Anders Borg",
+                password: "hairyguy",
+                primaryLocation: "US",
+                role: "venue"
+            },
+            {
+                email: "elonMusk2023@gmail.com",
+                name: "Elon Musk",
+                password: "richasheck",
+                primaryLocation: "US",
+                role: "venue"
+            },
         ]
         
         for (const user of userData) {

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 const VenueShowPage = (props) => {
     const venueId = props.match.params.id
     const [venue, setVenue] = useState({})
-    const { capacity, category, location , name, userId } = venue
+    const { id, capacity, category, location , name, userId } = venue
 
     const getVenue = async () => {
         try {
@@ -23,7 +23,7 @@ const VenueShowPage = (props) => {
     let newGig
     if (props.user) {
         if (props.user.id === userId)
-        newGig = <Link to={`/venues/${props.user.id}/gigs`}>Add a new gig!</Link>
+        newGig = <Link to={`/venues/${id}/gigs`}>Add a new gig!</Link>
     }
 
     return (
@@ -31,8 +31,8 @@ const VenueShowPage = (props) => {
             <h1>{name}</h1>
             <h3>{location}</h3>
             <ul>
-                <li>{capacity}</li>
-                <li>{category}</li>
+                <li>Capacity: {capacity}</li>
+                <li>Category: {category}</li>
             </ul>
             {newGig}
         </>
