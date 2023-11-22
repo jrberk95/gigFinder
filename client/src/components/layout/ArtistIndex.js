@@ -23,10 +23,12 @@ const ArtistIndex = (props) => {
     })
 
     return (
-        <>
-        <h1>All artists</h1>
-        {artistTiles}
-        </>
+        <div className="grid-container">
+            <div className="index grid-x grid-margin-x expanded center-content">
+            <h1 className="cell page-header">All artists</h1>
+            {artistTiles}
+            </div>
+        </div>
     )
 }
 
