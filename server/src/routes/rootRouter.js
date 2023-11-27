@@ -4,11 +4,13 @@ import usersRouter from "./api/v1/usersRouter.js";
 import clientRouter from "./clientRouter.js";
 import authSpotifyRouter from "./api/v1/authSpotifyRouter.js";
 import venuesRouter from "./api/v1/venuesRouter.js";
+import gigsRouter from "./api/v1/gigsRouter.js";
 const rootRouter = new express.Router();
 rootRouter.use("/auth/spotify", authSpotifyRouter)
 rootRouter.use("/api/v1/user-sessions", userSessionsRouter);
 rootRouter.use("/api/v1/users", usersRouter);
 rootRouter.use("/api/v1/venues", venuesRouter)
+rootRouter.use("/api/v1/gigs", gigsRouter)
 rootRouter.use("/", clientRouter);
 
 //place your server-side routes here

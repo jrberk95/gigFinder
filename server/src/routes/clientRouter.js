@@ -11,7 +11,8 @@ const clientRoutes = [
   "/venues", 
   "/artists/:spotifyArtistId",
   "/venues/new",
-  "/venues/:id"
+  "/venues/:venueId",
+  "/venues/:venueId/gigs"
   ];
 const authedClientRoutes = ["/profile", "/profile-type-select", "/artist-profile/edit", "/venue-profile/edit"];
 
