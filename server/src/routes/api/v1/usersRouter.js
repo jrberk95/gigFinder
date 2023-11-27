@@ -57,13 +57,11 @@ usersRouter.patch("/", async (req, res) => {
   })
 
 usersRouter.patch("/role", async (req, res) => {
-  console.log(req.body)
   try {
     const currentUser = await User.query().findOne({ id: req.user.id })
     const updatedUser = await currentUser.$query().patchAndFetch({ role: req.body.role })
     return res.status(200).json({ user: updatedUser })
   } catch (err) {
-    console.log(err)
     return res.status(500).json({ errors: err})
   }
 })

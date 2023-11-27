@@ -25,7 +25,7 @@ class Venue extends uniqueFunc(Model) {
     }
 
     static get relationMappings() {
-        const { User } = require ("./index.js")
+        const { User, Gig } = require ("./index.js")
         return {
             user: {
                 relation: Model.BelongsToOneRelation,
@@ -33,6 +33,14 @@ class Venue extends uniqueFunc(Model) {
                 join: {
                     from: "venues.userId",
                     to: "users.id"
+                }
+            },
+            gigs: {
+                relation: Model.HasManyRelation,
+                modelClass: Gig,
+                join: {
+                    from: "venues.id",
+                    to: "gigs.venueId"
                 }
             }
         }

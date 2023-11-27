@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 const VenueShowPage = (props) => {
     const venueId = props.match.params.id
     const [venue, setVenue] = useState({})
-    const { id, capacity, category, location , name, userId } = venue
+    const { id, capacity, category, location , name, userId, gigs } = venue
 
     const getVenue = async () => {
         try {
@@ -20,10 +20,31 @@ const VenueShowPage = (props) => {
         getVenue()
     }, [])
 
-    let newGig
     if (props.user) {
         if (props.user.id === userId)
         newGig = <Link to={`/venues/${id}/gigs`}>Add a new gig!</Link>
+    }
+    
+    let newGig
+    let gigTiles
+    if (gigs){
+        gigTiles = gigs.map((gig) => {
+            let rate
+            if (gig.rate.trim() == "") {
+                rate = "Not specified"
+            } else {
+                rate = `$${gig.rate}`
+            }
+            return (
+                <div className="gig-tile" key={gig.id}>
+                    <p>{gig.name}</p>
+                        <li>Date: {gig.date}</li>
+                        <li>{gig.type}</li>
+                        <li>Size: {gig.size}</li>
+                        <li>Rate: {rate}</li>
+                </div>
+            )
+        })
     }
 
     return (
@@ -35,6 +56,8 @@ const VenueShowPage = (props) => {
                 <li>Category: {category}</li>
             </ul>
             {newGig}
+            <h5>Available gigs at this venue:</h5>
+            {gigTiles}
         </>
     )
 }

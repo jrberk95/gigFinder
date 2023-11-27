@@ -60,7 +60,7 @@ const App = (props) => {
         <AuthenticatedRoute exact path="/venue-profile/edit" component={VenueAccountEdit} user={currentUser}/>
         <AuthenticatedRoute exact path="/venues/new" component={NewVenueForm} user={currentUser}/>
         <AuthenticatedRoute exact path="/venues/my-venues" component={VenuesByOwner} user={currentUser}/>
-        <AuthenticatedRoute exact path="/venues/:userId/gigs" component={NewGigForm} user={currentUser}/>
+        <AuthenticatedRoute exact path="/venues/:venueId/gigs" component={NewGigForm} user={currentUser}/>
         <Route 
           exact path="/venues/:id"
           render={(props) => {
