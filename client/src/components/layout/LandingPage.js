@@ -30,12 +30,14 @@ const LandingPage = (props) => {
     }
     
     return (
-        <div className="grid-container">
-            <div className="landing-page grid-x grid-margin-x">
-                <h1 className="page-header cell">Welcome to GigFinder</h1>
-                <h4 className="sub-header cell">Finding and booking gigs has never been easier!</h4>
-                {registrationSection}
-            </div>    
+        <div className="hero-image">
+            <div className="grid-container">
+                <div className="landing-page grid-x grid-margin-x fade-in">
+                    <h1 className="page-header cell">Welcome to GigFinder</h1>
+                    <h4 className="sub-header cell">Finding and booking gigs has never been easier!</h4>
+                    {registrationSection}
+                </div>    
+            </div>
         </div>
     )
 }
