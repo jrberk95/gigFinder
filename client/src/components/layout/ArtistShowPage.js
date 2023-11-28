@@ -57,7 +57,7 @@ const ArtistShowPage = (props) => {
             const { name, preview_url } = track
             return (
                 <div key={name} className="cell text-center">
-                    <a href={preview_url}>{name}</a>
+                    <a href={preview_url} className="link">{name}</a>
                     {/* <ul>
                         <li>
                             <a href={preview_url}>{name}</a>
@@ -70,7 +70,7 @@ const ArtistShowPage = (props) => {
     return (
         <div className="grid-x center-content">
             {dataSection}
-            <h5 className="cell text-center page-header">Top Tracks</h5>
+            <h3 className="cell text-center page-header">Top Tracks</h3>
             {topTracksData}
             <h3 className="cell text-center page-header">Related Artists</h3>
             {similarArtists}
