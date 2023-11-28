@@ -34,12 +34,12 @@ const ArtistShowPage = (props) => {
         dataSection = (
             <>
                 <h1 className="text-center page-header cell">{spotifyData.allData.artistData.name}</h1>
-                    <span className="cell text-center">Followers: {spotifyData.allData.artistData.followers.total}</span>
-                    {genres}
-                    <span className="cell text-center">Popularity: {spotifyData.allData.artistData.popularity}</span>
                 <div className="cell text-center bump-down">
                     <img src={spotifyData.allData.artistData.images[1].url}/>
                 </div>
+                    <span className="cell text-center followers">Followers: {spotifyData.allData.artistData.followers.total}</span>
+                    {genres}
+                    <span className="cell text-center">Popularity: {spotifyData.allData.artistData.popularity}</span>
             </>
         )
         
@@ -47,7 +47,7 @@ const ArtistShowPage = (props) => {
         similarArtists = returnedArtists.map((artist) => {
             return (
                 <div key={artist.name} className="cell medium-2 artist-tile">
-                    <h6>{artist.name}</h6>
+                    <h6 className="bump-down">{artist.name}</h6>
                     <img src={artist.images[1].url}/>
                 </div>
             )

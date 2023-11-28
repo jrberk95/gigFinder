@@ -18,9 +18,17 @@
   max-width: 50%;
 }
 
+.followers {
+  margin-top: 1rem;
+}
+
 body {
   background-color: #001233;
   color: #CAC0B3;
+}
+
+img{
+  border-radius: 10em;
 }
 
 label {
@@ -88,11 +96,16 @@ label {
 }
 
 .artist-tile {
-  border: 1px solid #FF595A;
   background-color: #CAC0B3;
   color: #001233;
   margin: 10px;
   text-align: center;
+  padding-bottom: 1rem;
+  border-radius: 0.5rem;
+
+  img {
+    border-radius: .5em;
+  }
 }
 
 .center-content{
