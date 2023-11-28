@@ -1,8 +1,6 @@
-import dotenv from "dotenv";
 import User from "../models/User.js";
 import { Strategy as SpotifyStrategy } from 'passport-spotify';
-
-dotenv.config();
+import config from "../config.js";
 
 const spotifyAuthHandler = (accessToken, refreshToken, expires_in, profile, done) => {
         User.query()
@@ -28,9 +26,9 @@ const spotifyAuthHandler = (accessToken, refreshToken, expires_in, profile, done
 
 const spotifyStrategy = new SpotifyStrategy (
     {
-        clientID: process.env.SPOTIFY_CLIENT_ID,
-        clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
-        callbackURL: 'http://localhost:3000/auth/spotify/callback'
+        clientID: config.spotifyClient.key,
+        clientSecret: config.spotifyClientSecret.key,
+        callbackURL: config.spotifyCallbackUrl.key
     },
     spotifyAuthHandler        
 )
