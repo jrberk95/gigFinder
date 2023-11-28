@@ -93,14 +93,18 @@ const NewVenueForm = (props) => {
     }
 
     return (
-        <>
-            <h1>Create a new venue</h1>
+        <div className="grid-xy form">
+            <h1 className="text-center cell">Create a new venue</h1>
             <ErrorList errors={serverErrors} />
             <form onSubmit={addVenue}>
-                <label>Venue name:
-                    <input type="text" name="name" value={formInput.name} onChange={handleInputChange}></input>
-                    <FormError error={errors.name} />
-                </label>
+                <div className="cell">
+                    <div className="cell large-12 columns">
+                    <label>Venue name:
+                        <input type="text" name="name" value={formInput.name} onChange={handleInputChange}></input>
+                        <FormError error={errors.name} />
+                    </label>
+                    </div>
+                </div>
                 <label>Location:
                     <input type="text" name="location" value={formInput.location} onChange={handleInputChange}></input>
                     <FormError error={errors.location} />
@@ -119,9 +123,9 @@ const NewVenueForm = (props) => {
                     </select>
                     <FormError error={errors.category} />
                 </label>
-                <input type="submit" value="Add new venue" className="button"></input>
+                <input type="submit" value="Add new venue" className="button-smaller button-79 button-smaller"></input>
             </form>
-        </>
+        </div>
     )
 }
 

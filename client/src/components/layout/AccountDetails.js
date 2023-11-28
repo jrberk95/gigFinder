@@ -10,35 +10,37 @@ const AccountDetails = (props) => {
         if (!spotifyArtistId) {
             idForm = <AddArtistId />
         } else {
-            idForm = <a href={`/artists/${spotifyArtistId}`}>See my public artist page</a>
+            idForm = <a href={`/artists/${spotifyArtistId}`} className="button-79 profile-button">See my public artist page</a>
         }
         pageDetails = (
-            <>
-            <h2>{name}</h2>
-            <p>Account type: {role}</p>
-            <p>Account email: {email}</p>
-            <p>Primary location: {primaryLocation}</p>
-            <p>Spotify Artist Id: {spotifyArtistId}</p>
+        <>
+            <h2 className="cell">{name}</h2>
+            <p className="cell">Account type: {role}</p>
+            <p className="cell">Account email: {email}</p>
+            <p className="cell">Primary location: {primaryLocation}</p>
+            <p className="cell">Spotify Artist Id: {spotifyArtistId}</p>
             {idForm}
         </>
         )
     } else if (role === "venue") {
         pageDetails = (
-            <>
-            <h2>{name}</h2>
-            <p>Account type: {role}</p>
-            <p>Account email: {email}</p>
-            <p>Primary location: {primaryLocation}</p>
-            <Link to="venues/new" className="button">Add a new venue</Link>
-            <Link to="venues/my-venues" className="button">View my venues</Link>
+        <>
+            <h2 className="cell">{name}</h2>
+            <p className="cell">Account type: {role}</p>
+            <p className="cell">Account email: {email}</p>
+            <p className="cell">Primary location: {primaryLocation}</p>
+            <div className="cell">
+                <Link to="venues/new" className="button-79 profile-button button-smaller">Add a new venue</Link>
+                <Link to="venues/my-venues" className="button-79 profile-button button-smaller">View my venues</Link>
+            </div>
         </>
         )
     }
 
     return (
-        <>
+        <div className="grid-x grid-margin-x div-center text-center section-wrapper">
             {pageDetails}
-        </>
+        </div>
     )
 }
 

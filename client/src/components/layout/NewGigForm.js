@@ -87,7 +87,7 @@ const NewGigForm = (props) => {
 
     return (
         <div className="form">
-            <h2>Add a new gig</h2>
+            <h2 className="text-center page-header">Add a new gig</h2>
             <ErrorList errors={serverErrors} />
             <form onSubmit={addGig}>
                 <label>Name:
@@ -112,7 +112,7 @@ const NewGigForm = (props) => {
                 <label>Rate:
                     <input type="number" name="rate" onChange={handleInputChange} value={formInput.rate}/>
                 </label>
-                <input type="submit" value="Add gig"/>
+                <input type="submit" value="Add gig" className="button-79 button-smaller"/>
             </form>
         </div>
     )
