@@ -22,25 +22,32 @@ const ArtistShowPage = (props) => {
     let artistImage
     let similarArtists
     let topTracksData
+    let genres
+
+    
     if (spotifyData.allData) {
+        if (spotifyData.allData.artistData.genres.length !== 0) {
+            genres = <li>Genres: {spotifyData.allData.artistData.genres}</li>
+        } else {
+            genres = ""
+        }
         dataSection = (
             <>
-                <h1>{spotifyData.allData.artistData.name}</h1>
-                <img src={spotifyData.allData.artistData.images[1].url}/>
-                <h4>Data:</h4>
-                <ul>
-                    <li>Followers: {spotifyData.allData.artistData.followers.total}</li>
-                    <li>Genres: {spotifyData.allData.artistData.genres}</li>
-                    <li>Popularity: {spotifyData.allData.artistData.popularity}</li>
-                </ul> 
+                <h1 className="text-center page-header cell">{spotifyData.allData.artistData.name}</h1>
+                    <span className="cell text-center">Followers: {spotifyData.allData.artistData.followers.total}</span>
+                    {genres}
+                    <span className="cell text-center">Popularity: {spotifyData.allData.artistData.popularity}</span>
+                <div className="cell text-center bump-down">
+                    <img src={spotifyData.allData.artistData.images[1].url}/>
+                </div>
             </>
         )
         
         let returnedArtists = spotifyData.allData.relatedArtists.artists
         similarArtists = returnedArtists.map((artist) => {
             return (
-                <div key={artist.name}>
-                    <p>{artist.name}</p>
+                <div key={artist.name} className="cell medium-2 artist-tile">
+                    <h6>{artist.name}</h6>
                     <img src={artist.images[1].url}/>
                 </div>
             )
@@ -49,20 +56,25 @@ const ArtistShowPage = (props) => {
         topTracksData = spotifyData.allData.topTracks.tracks.map((track) => {
             const { name, preview_url } = track
             return (
-                <div key={name}>
+                <div key={name} className="cell text-center">
                     <a href={preview_url}>{name}</a>
+                    {/* <ul>
+                        <li>
+                            <a href={preview_url}>{name}</a>
+                        </li>
+                    </ul> */}
                 </div> 
             )
         })
     }
     return (
-        <>
+        <div className="grid-x center-content">
             {dataSection}
-            <h5>Top Tracks</h5>
+            <h5 className="cell text-center page-header">Top Tracks</h5>
             {topTracksData}
-            <h5>Related Artists:</h5>
+            <h3 className="cell text-center page-header">Related Artists</h3>
             {similarArtists}
-        </>
+        </div>
     )
 }
 

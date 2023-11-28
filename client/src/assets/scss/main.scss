@@ -13,8 +13,17 @@
   tab-size: 4;
 }
 
+.form {
+  margin: 0 auto;
+  max-width: 50%;
+}
+
 body {
   background-color: #001233;
+  color: #CAC0B3;
+}
+
+label {
   color: #CAC0B3;
 }
 
@@ -42,8 +51,8 @@ body {
   margin-right: 3px;
 }
 
-.trouble {
-  margin-top: 4px;
+.bump-down {
+  margin-top: 3px;
 }
 
 .button:hover {
@@ -57,26 +66,25 @@ body {
 }
 
 .section-wrapper {
-  background-color: #001233;
   color: #CAC0B3;
   border-radius: 1em;
-  padding-bottom: 1em;
+  padding: 2rem;
 }
 
 .landing-page{
   color: #CAC0B3;
   text-align: center;
-  background-color: rgba(0, 18, 51, 0.5);
+  // background-color: rgba(0, 18, 51, 0.5);
 }
 
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/pexels-photo-167636-132328479.jpeg);
+  background-image: linear-gradient(rgba(0, 18, 51, 0.5), rgba(0, 18, 51, 0.5)), url(../images/pexels-photo-167636-132328479.jpeg);
   height: 50%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  padding: 5rem 0 15rem 0;
+  padding: 5rem 0 25rem 0;
 }
 
 .artist-tile {
@@ -98,9 +106,14 @@ body {
   margin: 0 auto;
 }
 
+.align-right  {
+  margin-right: 0;
+}
+
 .top-bar {
   background-color: #001233;
   color: #CAC0B3;
+  border-bottom: 1px solid;
 
   .menu {
     background-color: #001233;
@@ -109,7 +122,11 @@ body {
 }
 
 .div-center {
-  margin: 0 auto;
+  margin: 0 25rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .button-caption {
@@ -118,6 +135,7 @@ body {
 }
 
 .page-header{
+  padding-top: 1rem;
   color: #CAC0B3;
   text-align: center;
 }
@@ -153,7 +171,14 @@ caption {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  margin: 5px auto;
+}
+
+.profile-button{
+  margin: 5px;
+}
+
+.button-smaller {
+  padding: 0.7rem 1rem;
 }
 
 .button-79:disabled {
