@@ -14,8 +14,8 @@
 }
 
 body {
-  background-color: #B8D8D8;
-  color: #4F6367;
+  background-color: #001233;
+  color: #CAC0B3;
 }
 
 .tile-pic{
@@ -28,16 +28,16 @@ body {
 
 .tile-header {
   font-size: 2em;
-  color: #EEF5DB;
+  color: #001233;
 }
 
 .tile-header:hover {
-  color: #7A9E9F;
+  color: #FF595A;
 }
 
 .button {
-  background-color: #4F6367;
-  color: #ddadad;
+  background-color: #CAC0B3;
+  color: #001233;
   border-radius: 1em;
   margin-right: 3px;
 }
@@ -47,32 +47,42 @@ body {
 }
 
 .button:hover {
-  background-color: #EEF5DB;
-  color: #4F6367;
+  background-color: #001233;
+  color: #CAC0B3;
 }
 
 .button:focus {
-  background-color: #4F6367;
-  color: #EEF5DB;
+  background-color: #001233;
+  color: #CAC0B3;
 }
 
 .section-wrapper {
-  background-color: #4F6367;
-  color: #EEF5DB;
+  background-color: #001233;
+  color: #CAC0B3;
   border-radius: 1em;
   padding-bottom: 1em;
 }
 
 .landing-page{
-  color: #4F6367;
-  margin: 0 2em;
+  color: #CAC0B3;
   text-align: center;
+  background-color: rgba(0, 18, 51, 0.5);
+}
+
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/pexels-photo-167636-132328479.jpeg);
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: 5rem 0 15rem 0;
 }
 
 .artist-tile {
-  border: 1px solid #4F6367;
-  background-color: #4F6367;
-  color: #EEF5DB;
+  border: 1px solid #FF595A;
+  background-color: #CAC0B3;
+  color: #001233;
   margin: 10px;
   text-align: center;
 }
@@ -89,12 +99,12 @@ body {
 }
 
 .top-bar {
-  background-color: #4F6367;
-  color: #B8D8D8;
+  background-color: #001233;
+  color: #CAC0B3;
 
   .menu {
-    background-color: #4F6367;
-    color: #B8D8D8;
+    background-color: #001233;
+    color: #CAC0B3;
   }
 }
 
@@ -108,12 +118,12 @@ body {
 }
 
 .page-header{
-  color: #4F6367;
+  color: #CAC0B3;
   text-align: center;
 }
 
 .link {
-  color: #EEF5DB;
+  color: #001233;
 }
 
 caption {
@@ -122,11 +132,11 @@ caption {
 
 .button-79 {
   backface-visibility: hidden;
-  background: #F97C73;
+  background: #FF595A;
   border: 0;
   border-radius: .375rem;
   box-sizing: border-box;
-  color: #EEF5DB;
+  color: #2e223c;
   cursor: pointer;
   display: inline-block;
   font-family: Circular,Helvetica,sans-serif;
@@ -153,7 +163,7 @@ caption {
 
 .button-79:not(:disabled):hover {
   transform: scale(1.05);
-  color: #4F6367;
+  color: #CAC0B3;
 }
 
 .button-79:not(:disabled):hover:active {
