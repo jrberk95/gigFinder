@@ -35,7 +35,7 @@ const ArtistShowPage = (props) => {
             <>
                 <h1 className="text-center page-header cell">{spotifyData.allData.artistData.name}</h1>
                 <div className="cell text-center bump-down">
-                    <img src={spotifyData.allData.artistData.images[1].url}/>
+                    <img src={spotifyData.allData.artistData.images[1].url} className="rounded"/>
                 </div>
                     <span className="cell text-center followers">Followers: {spotifyData.allData.artistData.followers.total}</span>
                     {genres}
@@ -46,10 +46,16 @@ const ArtistShowPage = (props) => {
         let returnedArtists = spotifyData.allData.relatedArtists.artists
         similarArtists = returnedArtists.map((artist) => {
             return (
-                <div key={artist.name} className="cell medium-2 artist-tile">
-                    <h6 className="bump-down">{artist.name}</h6>
-                    <img src={artist.images[1].url}/>
+                // <div key={artist.name} className="cell small-11 medium-3 artist-tile center-content grid-padding-x">
+                //     <h6 className="bump-down">{artist.name}</h6>
+                //     <img src={artist.images[1].url}/>
+                // </div>
+            <div className="card">
+                <div class="card-divider">
+                    <h5 className="text-center">{artist.name}</h5>
                 </div>
+                <img src={artist.images[1].url}/>
+            </div>
             )
         })
 
@@ -57,12 +63,7 @@ const ArtistShowPage = (props) => {
             const { name, preview_url } = track
             return (
                 <div key={name} className="cell text-center">
-                    <a href={preview_url}>{name}</a>
-                    {/* <ul>
-                        <li>
-                            <a href={preview_url}>{name}</a>
-                        </li>
-                    </ul> */}
+                    <a href={preview_url} className="link">{name}</a>
                 </div> 
             )
         })
@@ -70,10 +71,12 @@ const ArtistShowPage = (props) => {
     return (
         <div className="grid-x center-content">
             {dataSection}
-            <h5 className="cell text-center page-header">Top Tracks</h5>
+            <h3 className="cell text-center page-header">Top Tracks</h3>
             {topTracksData}
             <h3 className="cell text-center page-header">Related Artists</h3>
-            {similarArtists}
+            <div className="grid-x grid-margin-x small-up-1 medium-up-4 center-content">
+                {similarArtists}
+            </div>
         </div>
     )
 }

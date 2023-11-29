@@ -21,8 +21,6 @@ const LandingPage = (props) => {
             <div className="cell grid-x">
                 <div className="cell">
                     <Link to="/artists" className="button-79 profile-button">View Artists</Link>
-                </div>
-                <div className="cell">
                     <Link to="/venues" className="button-79 profile-button">View Venues</Link>
                 </div>
             </div>

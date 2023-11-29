@@ -87,7 +87,7 @@ const NewGigForm = (props) => {
 
     return (
         <div className="form">
-            <h2 className="text-center page-header">Add a new gig</h2>
+            <h2 className="text-center page-header">Add a New Gig</h2>
             <ErrorList errors={serverErrors} />
             <form onSubmit={addGig}>
                 <label>Name:
