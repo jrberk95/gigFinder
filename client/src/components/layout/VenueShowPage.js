@@ -22,43 +22,50 @@ const VenueShowPage = (props) => {
 
     if (props.user) {
         if (props.user.id === userId)
-        newGig = <Link to={`/venues/${id}/gigs`}>Add a new gig!</Link>
+        newGig = <Link to={`/venues/${id}/gigs`} className="button-79 button-smaller">Add a new gig!</Link>
     }
     
     let newGig
     let gigTiles
-    if (gigs){
-        gigTiles = gigs.map((gig) => {
-            let rate
-            if (gig.rate.trim() == "") {
-                rate = "Not specified"
-            } else {
-                rate = `$${gig.rate}`
-            }
-            return (
-                <div className="gig-tile" key={gig.id}>
-                    <p>{gig.name}</p>
-                        <li>Date: {gig.date}</li>
-                        <li>{gig.type}</li>
-                        <li>Size: {gig.size}</li>
-                        <li>Rate: {rate}</li>
-                </div>
-            )
-        })
+    if (gigs) {
+        if (gigs.length > 0){
+            gigTiles = gigs.map((gig) => {
+                let rate
+                if (gig.rate.trim() == "") {
+                    rate = "Not specified"
+                } else {
+                    rate = `$${gig.rate}`
+                }
+                return (
+                    <div className="gig-tile" key={gig.id}>
+                        <h4>{gig.name}</h4>
+                            <li>{gig.date}</li>
+                            <li>{gig.type}</li>
+                            <li>Attendees: {gig.size}</li>
+                            <li className="margin-bottom">Rate: {rate}</li>
+                            <Link to="/nowhere"className="button">Apply for this gig!</Link>
+                    </div>
+                )
+            })
+        } else {
+            gigTiles = <p>No gigs available at this venue</p>
+        }
     }
 
     return (
-        <>
-            <h1>{name}</h1>
-            <h3>{location}</h3>
-            <ul>
-                <li>Capacity: {capacity}</li>
-                <li>Category: {category}</li>
-            </ul>
-            {newGig}
-            <h5>Available gigs at this venue:</h5>
-            {gigTiles}
-        </>
+        <div className="grid-x grid-margin-x">
+            <h1 className="cell page-header">{name}</h1>
+            <h3 className="cell text-center">{location}</h3>
+            <h6 className="cell text-center">Capacity: {capacity}</h6>
+            <h6 className="cell text-center">Category: {category}</h6>
+            <div className="cell centered more-margin">
+                {newGig}
+            </div>
+            <h3 className="cell text-center">Available gigs at this venue:</h3>
+            <div className="grid-container">
+                {gigTiles}
+            </div>
+        </div>
     )
 }
 

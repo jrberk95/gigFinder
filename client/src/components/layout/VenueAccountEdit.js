@@ -15,10 +15,12 @@ const VenueAccountEdit =(props) => {
     }
 
     return (
-        <>
-            <h5>Please confirm that you would like to make a venue account</h5>
-            <a href="/profile" className="button" onClick={addVenueRole}>Confirm</a>
-        </>
+        <div className="grid-x grid-margin-x">
+            <h3 className="cell page-header">Please confirm that you would like to make a venue account</h3>
+            <div className="cell centered">
+                <a href="/profile" className="button-79 profile-button" onClick={addVenueRole}>Confirm</a>
+            </div>
+        </div>
     )
 }
 
