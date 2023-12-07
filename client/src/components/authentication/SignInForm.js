@@ -71,10 +71,12 @@ const SignInForm = () => {
   }
 
   return (
-    <div className="grid-container" onSubmit={onSubmit}>
-      <h1>Sign In</h1>
-      <h4>Use the button below to sign in with Spotify</h4>
-      <a href="/auth/spotify" className="button">Sign in with Spotify</a>
+    <div className="grid-x grid-margin-x" onSubmit={onSubmit}>
+      <h1 className="cell page-header">Sign In</h1>
+      <h4 className="cell text-center">Use the button below to sign in with Spotify</h4>
+      <div className="cell centered">
+        <a href="/auth/spotify" className="button-79 profile-button">Sign in with Spotify</a>
+      </div>
     </div>
   );
 };
