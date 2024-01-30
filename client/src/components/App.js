@@ -20,6 +20,7 @@ import VenuesByOwner from "./layout/VenuesByOwner";
 import VenueIndex from "./layout/VenueIndex";
 import AccountTypeSelector from "./layout/AccountTypeSelector";
 import VenueAccountEdit from "./layout/VenueAccountEdit";
+import GigIndex from "./layout/GigIndex";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -61,6 +62,7 @@ const App = (props) => {
         <AuthenticatedRoute exact path="/venues/new" component={NewVenueForm} user={currentUser}/>
         <AuthenticatedRoute exact path="/venues/my-venues" component={VenuesByOwner} user={currentUser}/>
         <AuthenticatedRoute exact path="/venues/:venueId/gigs" component={NewGigForm} user={currentUser}/>
+        <AuthenticatedRoute exact path="/gigs" component={GigIndex} user={currentUser}/>
         <Route 
           exact path="/venues/:id"
           render={(props) => {

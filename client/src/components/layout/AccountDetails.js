@@ -13,14 +13,14 @@ const AccountDetails = (props) => {
             idForm = <a href={`/artists/${spotifyArtistId}`} className="button-79 profile-button">See my public artist page</a>
         }
         pageDetails = (
-        <>
+        <div>
             <h2 className="cell">{name}</h2>
             <p className="cell">Account type: {role}</p>
             <p className="cell">Account email: {email}</p>
             <p className="cell">Primary location: {primaryLocation}</p>
             <p className="cell">Spotify Artist Id: {spotifyArtistId}</p>
             {idForm}
-        </>
+        </div>
         )
     } else if (role === "venue") {
         pageDetails = (
@@ -48,7 +48,7 @@ const AccountDetails = (props) => {
     }
 
     return (
-        <div className="grid-x grid-margin-x div-center text-center section-wrapper">
+        <div className="grid-x grid-margin-x text-center section-wrapper">
             {pageDetails}
         </div>
     )
