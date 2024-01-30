@@ -27,7 +27,11 @@ const ArtistShowPage = (props) => {
     
     if (spotifyData.allData) {
         if (spotifyData.allData.artistData.genres.length !== 0) {
-            genres = <li>Genres: {spotifyData.allData.artistData.genres}</li>
+            genres = (
+                <span className="cell text-center">
+                    Genres: {spotifyData.allData.artistData.genres}
+                </span>
+            ) 
         } else {
             genres = ""
         }

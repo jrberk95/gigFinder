@@ -33,6 +33,9 @@ const TopBar = ({ user }) => {
           <li>
             <Link to="/venues" className="button link bump-down">Venues</Link>
           </li>
+          <li>
+            <Link to="/gigs" className="button link bump-down">Gigs</Link>
+          </li>
         </>
       )
   }

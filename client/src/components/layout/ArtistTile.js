@@ -11,12 +11,13 @@ const ArtistTile = (props) => {
 
     if (genres.length > 0) {
         let genreOptions = genres.map((genre) => {
-            return <li key={genre}>{genre}</li>
+            console.log(genre)
+            return <span key={genre}>{genre}</span>
         }) 
         genreDisplay = (
         <div>
-            <p>Genres:</p>
-            <ul>{genreOptions}</ul>
+            <span>Genres: </span>
+            <span>{genreOptions}</span>
         </div>)
     }
 
@@ -26,10 +27,10 @@ const ArtistTile = (props) => {
                 <Link to={`/artists/${spotifyArtistId}`} className="tile-header">{props.artist.data.name}</Link>
                 <figcaption>Followers: {followers}</figcaption>
             </div>
+            {genreDisplay}
             <div className="image-container">
                 <img src={imageSrc} alt="Artist Spotify Profile Picture" className="tile-pic"/>
             </div>
-            {genreDisplay}
         </div>
     ) 
 }

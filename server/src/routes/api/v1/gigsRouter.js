@@ -17,4 +17,13 @@ gigsRouter.post("/", async (req, res) => {
     }
 })
 
+gigsRouter.get("/", async (req, res) => {
+    try {
+        const allGigs = await Gig.query()
+        return res.status(200).json({ gigs: allGigs })
+    } catch (err) {
+        return res.status(500).json({ errors: err })
+    }
+})
+
 export default gigsRouter

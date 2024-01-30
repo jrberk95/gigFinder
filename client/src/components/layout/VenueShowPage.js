@@ -20,9 +20,15 @@ const VenueShowPage = (props) => {
         getVenue()
     }, [])
 
+    let applyButton
     if (props.user) {
-        if (props.user.id === userId)
-        newGig = <Link to={`/venues/${id}/gigs`} className="button-79 button-smaller">Add a new gig!</Link>
+        if (props.user.id === userId) {
+            newGig = <Link to={`/venues/${id}/gigs`} className="button-79 button-smaller">Add a new gig!</Link>
+        }
+
+        if (props.user.role === "artist") {
+            applyButton = <Link to="/nowhere"className="button">Apply for this gig!</Link>
+        }
     }
     
     let newGig
@@ -43,7 +49,7 @@ const VenueShowPage = (props) => {
                             <li>{gig.type}</li>
                             <li>Attendees: {gig.size}</li>
                             <li className="margin-bottom">Rate: {rate}</li>
-                            <Link to="/nowhere"className="button">Apply for this gig!</Link>
+                            {applyButton}
                     </div>
                 )
             })
